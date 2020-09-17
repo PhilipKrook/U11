@@ -9,12 +9,13 @@ import ButtonToolbar from "react-bootstrap/ButtonToolbar";
 import { LinkContainer } from "react-router-bootstrap";
 import Calendar from "react-calendar";
 import "react-calendar/dist/Calendar.css";
+import App, { Dashboard, MyApp } from '/App';
 
 const Home = () => <span>Home</span>;
 const About = () => <span>About</span>;
 const Users = () => <span>Users</span>;
 
-/* const App = () => (
+ const Dashboard = () => (
   <MemoryRouter>
     <Container className="p-3">
       <Jumbotron>
@@ -46,11 +47,11 @@ const Users = () => <span>Users</span>;
   </MemoryRouter>
 );
 
-export default App; */
+export const Dashboard; 
 
 // ** Calendar **
 
- function MyApp() {
+  function MyApp() {
   const [value, setValue] = useState(new Date());
   function onChange(nextValue) {
     setValue(nextValue);
@@ -62,5 +63,6 @@ export default App; */
     />
   );
 }
-export default MyApp; 
 // ** End Calendar **
+
+export const MyApp;
