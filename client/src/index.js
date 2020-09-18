@@ -1,13 +1,17 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
-import App, { Dashboard, MyApp } from './App';
+import App from './App';
 import * as serviceWorker from './serviceWorker';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import Dashboard from './Dashboard/dashboard';
+// import MyCalendar from './Calendar/calendar';
 
 ReactDOM.render(
   <React.StrictMode>
     <App />
+    <Dashboard />
+    {/* <MyCalendar /> */}
   </React.StrictMode>,
   document.getElementById('root')
 );

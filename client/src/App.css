@@ -1,3 +1,7 @@
+.bgimg {
+  background-image: url(/client/src/bakground.jpg);
+}
+
 .header {
   text-align: center;
 }
@@ -10,7 +14,12 @@
   margin-right: 1rem;
 }
 
-.react-calendar {
-  margin: 20px;
+.jumbotron {
   box-shadow: 0 30px 40px 0 rgba(16, 36, 94, 0.2);
 }
+
+/* .react-calendar {
+  margin: 20px;
+  box-shadow: 0 30px 40px 0 rgba(16, 36, 94, 0.2);
+  border-radius: .3rem;
+} */
