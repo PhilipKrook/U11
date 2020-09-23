@@ -6,18 +6,10 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background-image: url(/client/src/bakground.jpg);
+  background-image: url(/background.jpg);
 }
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
-}
-
-.root {
-  background-image: url(/client/src/bakground.jpg);
-}
-
-.bgimg {
-  background-image: url(/client/src/bakground.jpg);
 }

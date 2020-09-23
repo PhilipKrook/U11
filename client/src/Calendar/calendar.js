@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import Calendar from "react-calendar";
 import "react-calendar/dist/Calendar.css";
+import "./calender.css";
 
 function MyCalendar() {
     const [value, setValue] = useState(new Date());
