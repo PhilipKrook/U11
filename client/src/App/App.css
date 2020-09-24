@@ -1,8 +1,15 @@
+.bigbox {
+    display: flex;
+    justify-content: center;
+}
+
 .jumbotron {
-    background-color: orange !important;
-    color: yellow;
+    background-color: lightgray;    
+    margin: 4rem 2rem;
+    min-width: 576px;
+    display: block;
 }
 
 .container {
-    background-color: red;
+    display: flex;
 }
