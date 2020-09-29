@@ -20,7 +20,7 @@ function HomePage() {
     return (
         <div className="col-lg-8 offset-lg-2">
             <h1>Hi {user.firstName}!</h1>
-            <p>You're logged in with React Hooks!!</p>
+            <p>Here you can see all registered users, edit and delete them</p>
             <h3>All registered users:</h3>
             {users.loading && <em>Loading users...</em>}
             {users.error && <span className="text-danger">ERROR: {users.error}</span>}
@@ -32,9 +32,9 @@ function HomePage() {
                             {
                                 user.deleting ? <em> - Deleting...</em>
                                 : user.deleteError ? <span className="text-danger"> - ERROR: {user.deleteError}</span>
-                                : <span> - <a onClick={() => handleDeleteUser(user.id)} className="text-primary">Delete</a> - </span>
+                                : <span> - <a onClick={() => handleDeleteUser(user.id)} className="text-primary">Delete</a> </span>
                             }
-                            <Link to={{pathname: `/user/${user.id}`}}> Edit user</Link>
+                            <Link to={{pathname: `/user/${user.id}`}}> Edit</Link>
                             
                         </li>
                     )}
