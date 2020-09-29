@@ -8,6 +8,7 @@ export const userActions = {
     logout,
     register,
     getAll,
+    getById,
     delete: _delete
 };
 
@@ -74,6 +75,22 @@ function getAll() {
 
     function request() { return { type: userConstants.GETALL_REQUEST } }
     function success(users) { return { type: userConstants.GETALL_SUCCESS, users } }
+    function failure(error) { return { type: userConstants.GETALL_FAILURE, error } }
+}
+
+function getById() {
+    return dispatch => {
+        dispatch(request(id));
+
+        userService.getById()
+            .then(
+                user => dispatch(success(user)),
+                error => dispatch(failure(error.toString()))
+            );
+    };
+
+    function request(id) { return { type: userConstants.GETALL_REQUEST } }
+    function success(user) { return { type: userConstants.GETALL_SUCCESS, user } }
     function failure(error) { return { type: userConstants.GETALL_FAILURE, error } }
 }
 

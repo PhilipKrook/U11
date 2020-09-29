@@ -7,10 +7,10 @@
     background-color: lightgray;    
     margin: 4rem 2rem;
     min-width: 576px;
+    box-shadow: 0 30px 40px 0 rgba(16, 36, 94, 0.2);
     display: block;
 }
 
 .container {
     display: flex;
 }
-
