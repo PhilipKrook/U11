@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 
 import { userActions } from "../_actions";
+import DropdownButton from 'react-bootstrap/DropdownButton'
 
 function RegisterPage() {
   const [user, setUser] = useState({
@@ -108,7 +109,8 @@ function RegisterPage() {
           {submitted && !user.userRole && (
             <div className="invalid-feedback">Role is required</div>
           )}
-        </div>
+        </div>           
+
         <div className="form-group">
           <label>Password</label>
           <input
