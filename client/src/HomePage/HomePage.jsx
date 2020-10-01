@@ -28,11 +28,11 @@ function HomePage() {
                 <ul>
                     {users.items.map((user, index) =>
                         <li key={user.id}>
-                            {user.firstName + ' ' + user.lastName}
+                            { user.firstName + ' ' + user.lastName + ' - ' + user.userRole }
                             {
                                 user.deleting ? <em> - Deleting...</em>
                                 : user.deleteError ? <span className="text-danger"> - ERROR: {user.deleteError}</span>
-                                : <span> - <a onClick={() => handleDeleteUser(user.id)} className="text-primary">Delete</a> </span>
+                                : <span> <a onClick={() => handleDeleteUser(user.id)} className="text-primary">Delete</a> </span>
                             }
                             <Link to={{pathname: `/user/${user.id}`}}> Edit</Link>
                             

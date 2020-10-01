@@ -10,6 +10,7 @@ function UserPage(propps) {
     firstName: "",
     lastName: "",
     username: "",
+    userRole: "",
     password: "",
   });
 
@@ -34,8 +35,14 @@ function UserPage(propps) {
     e.preventDefault();
 
     setSubmitted(true);
-    if (user.firstName && user.lastName && user.username && user.password) {
-      userService.update(user);
+    if (
+      user.firstName &&
+      user.lastName &&
+      user.username &&
+      user.password &&
+      user.userRole
+    ) {
+      dispatch(userActions.update(user));
     }
   }
 
@@ -89,6 +96,22 @@ function UserPage(propps) {
           />
           {submitted && !user.username && (
             <div className="invalid-feedback">Username is required</div>
+          )}
+        </div>
+        <div className="form-group">
+          <label>Role</label>
+          <input
+            type="text"
+            name="userRole"
+            value={user.userRole}
+            onChange={handleChange}
+            className={
+              "form-control" +
+              (submitted && !user.userRole ? " is-invalid" : "")
+            }
+          />
+          {submitted && !user.userrole && (
+            <div className="invalid-feedback">Role is required</div>
           )}
         </div>
         <div className="form-group">
