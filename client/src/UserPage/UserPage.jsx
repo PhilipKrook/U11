@@ -12,17 +12,17 @@ function UserPage(propps) {
     username: "",
     password: "",
   });
-  console.log(propps);
+
   const [submitted, setSubmitted] = useState(false);
-  const registering = useSelector((state) => state.registration.registering);
+  const updating = useSelector((state) => state.update.updating);
   const dispatch = useDispatch();
 
   // reset login status
 
   useEffect(() => {
     userService.getById(propps.match.params.testvalue).then((newUser) => {
-        setUser((user) => ({ ...user, ...newUser }));
-        });
+      setUser((user) => ({ ...user, ...newUser }));
+    });
   }, []);
 
   function handleChange(e) {
@@ -109,7 +109,7 @@ function UserPage(propps) {
         </div>
         <div className="form-group">
           <button className="btn btn-primary">
-            {registering && (
+            {updating && (
               <span className="spinner-border spinner-border-sm mr-1"></span>
             )}
             Edit

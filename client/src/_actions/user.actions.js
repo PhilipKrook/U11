@@ -7,6 +7,7 @@ export const userActions = {
     login,
     logout,
     register,
+    update,
     getAll,
     getById,
     delete: _delete
@@ -60,6 +61,29 @@ function register(user) {
     function request(user) { return { type: userConstants.REGISTER_REQUEST, user } }
     function success(user) { return { type: userConstants.REGISTER_SUCCESS, user } }
     function failure(error) { return { type: userConstants.REGISTER_FAILURE, error } }
+}
+
+function update(user) {
+    return dispatch => {
+        dispatch(request(user));
+
+        userService.update(user)
+            .then(
+                user => { 
+                    dispatch(success());
+                    history.push('/home');
+                    dispatch(alertActions.success('Edit successful'));
+                },
+                error => {
+                    dispatch(failure(error.toString()));
+                    dispatch(alertActions.error(error.toString()));
+                }
+            );
+    };
+
+    function request(user) { return { type: userConstants.UPDATE_REQUEST, user } }
+    function success(user) { return { type: userConstants.UPDATE_SUCCESS, user } }
+    function failure(error) { return { type: userConstants.UPDATE_FAILURE, error } }
 }
 
 function getAll() {

@@ -4,8 +4,6 @@ import { useDispatch, useSelector } from 'react-redux';
 
 import { userActions } from '../_actions';
 
-import './Login.css';
-
 function LoginPage() {
     const [inputs, setInputs] = useState({
         username: '',
