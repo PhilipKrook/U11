@@ -4,6 +4,8 @@ import { useDispatch, useSelector } from "react-redux";
 
 import { userActions } from "../_actions";
 import { userService } from "../_services";
+import Dropdown from 'react-dropdown';
+import 'react-dropdown/style.css';
 
 function UserPage(propps) {
   const [user, setUser] = useState({
@@ -31,6 +33,10 @@ function UserPage(propps) {
     setUser((user) => ({ ...user, [name]: value }));
   }
 
+  function handleRoleChange({value, label}) {
+    setUser((user) => ({ ...user, userRole: value}));
+  }
+
   function handleSubmit(e) {
     e.preventDefault();
 
@@ -45,6 +51,10 @@ function UserPage(propps) {
       dispatch(userActions.update(user));
     }
   }
+
+  // dropdown
+  const options = [ 'Admin', 'User' ]
+  const defaultOption = options[0]; 
 
   return (
     <div className="col-lg-8 offset-lg-2">
@@ -98,22 +108,16 @@ function UserPage(propps) {
             <div className="invalid-feedback">Username is required</div>
           )}
         </div>
+
         <div className="form-group">
-          <label>Role</label>
-          <input
-            type="text"
-            name="userRole"
-            value={user.userRole}
-            onChange={handleChange}
-            className={
-              "form-control" +
-              (submitted && !user.userRole ? " is-invalid" : "")
-            }
-          />
-          {submitted && !user.userrole && (
+           <label>Role</label>         
+            <Dropdown className={ (submitted && !user.userRole ? " is-invalid" : "") } 
+            options={options} onChange={handleRoleChange} value={user.userRole} placeholder="Role" />         
+          {submitted && !user.userRole && (
             <div className="invalid-feedback">Role is required</div>
-          )}
+          )} 
         </div>
+      
         <div className="form-group">
           <label>Password</label>
           <input
