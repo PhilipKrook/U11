@@ -16,7 +16,7 @@ module.exports = {
 async function authenticate({ username, password }) {
     const user = await User.findOne({ username });
     if (user && bcrypt.compareSync(password, user.hash)) {
-        // add user roles
+        // add user roles here?
         const token = jwt.sign({ sub: user.id }, config.secret, { expiresIn: '7d' });
         return {
             ...user.toJSON(),

@@ -10,9 +10,14 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 app.use(cors());
 
-// roles
-/* app.use(...);
 
+
+
+// new routes
+require('./app/routes/auth.routes')(app);
+require('./app/routes/user.routes')(app); 
+
+// roles
 const db = require("./app/models");
 const Role = db.role;
 
@@ -30,7 +35,6 @@ db.mongoose
     process.exit();
   });
 
-...
 function initial() {
   Role.estimatedDocumentCount((err, count) => {
     if (!err && count === 0) {
@@ -65,7 +69,7 @@ function initial() {
       });
     }
   });
-} */
+} 
 
 
 // use JWT auth to secure the api

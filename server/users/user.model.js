@@ -19,14 +19,12 @@ schema.set('toJSON', {
     }
 });
 
-
-/* const mongoose = require("mongoose");
+// roles
 
 const User = mongoose.model(
   "User",
   new mongoose.Schema({
     username: String,
-    email: String,
     password: String,
     roles: [
       {
@@ -37,7 +35,8 @@ const User = mongoose.model(
   })
 );
 
-module.exports = User; */
+module.exports = User; 
+// end roles
 
 
 module.exports = mongoose.model('User', schema);
