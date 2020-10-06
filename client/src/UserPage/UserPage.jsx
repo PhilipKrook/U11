@@ -1,19 +1,19 @@
-import React, { useState, useEffect } from "react";
-import { Link } from "react-router-dom";
-import { useDispatch, useSelector } from "react-redux";
-
-import { userActions } from "../_actions";
-import { userService } from "../_services";
+import React, { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
+import { useDispatch, useSelector } from 'react-redux';
 import Dropdown from 'react-dropdown';
+
+import { userActions } from '../_actions';
+import { userService } from '../_services';
 import 'react-dropdown/style.css';
 
 function UserPage(propps) {
   const [user, setUser] = useState({
-    firstName: "",
-    lastName: "",
-    username: "",
-    userRole: "",
-    password: "",
+    firstName: '',
+    lastName: '',
+    username: '',
+    userRole: '',
+    password: '',
   });
 
   const [submitted, setSubmitted] = useState(false);
@@ -33,28 +33,22 @@ function UserPage(propps) {
     setUser((user) => ({ ...user, [name]: value }));
   }
 
-  function handleRoleChange({value, label}) {
-    setUser((user) => ({ ...user, userRole: value}));
+  function handleRoleChange({ value, label }) {
+    setUser((user) => ({ ...user, userRole: value }));
   }
 
   function handleSubmit(e) {
     e.preventDefault();
 
     setSubmitted(true);
-    if (
-      user.firstName &&
-      user.lastName &&
-      user.username &&
-      user.password &&
-      user.userRole
-    ) {
+    if (user.firstName && user.lastName && user.username && user.password && user.userRole) {
       dispatch(userActions.update(user));
     }
   }
 
   // dropdown
-  const options = [ 'Admin', 'User' ]
-  const defaultOption = options[0]; 
+  const options = ['Admin', 'User'];
+  const defaultOption = options[0];
 
   return (
     <div className="col-lg-8 offset-lg-2">
@@ -67,10 +61,7 @@ function UserPage(propps) {
             name="firstName"
             value={user.firstName}
             onChange={handleChange}
-            className={
-              "form-control" +
-              (submitted && !user.firstName ? " is-invalid" : "")
-            }
+            className={'form-control' + (submitted && !user.firstName ? ' is-invalid' : '')}
           />
           {submitted && !user.firstName && (
             <div className="invalid-feedback">First Name is required</div>
@@ -83,10 +74,7 @@ function UserPage(propps) {
             name="lastName"
             value={user.lastName}
             onChange={handleChange}
-            className={
-              "form-control" +
-              (submitted && !user.lastName ? " is-invalid" : "")
-            }
+            className={'form-control' + (submitted && !user.lastName ? ' is-invalid' : '')}
           />
           {submitted && !user.lastName && (
             <div className="invalid-feedback">Last Name is required</div>
@@ -99,10 +87,7 @@ function UserPage(propps) {
             name="username"
             value={user.username}
             onChange={handleChange}
-            className={
-              "form-control" +
-              (submitted && !user.username ? " is-invalid" : "")
-            }
+            className={'form-control' + (submitted && !user.username ? ' is-invalid' : '')}
           />
           {submitted && !user.username && (
             <div className="invalid-feedback">Username is required</div>
@@ -110,14 +95,17 @@ function UserPage(propps) {
         </div>
 
         <div className="form-group">
-           <label>Role</label>         
-            <Dropdown className={ (submitted && !user.userRole ? " is-invalid" : "") } 
-            options={options} onChange={handleRoleChange} value={user.userRole} placeholder="Role" />         
-          {submitted && !user.userRole && (
-            <div className="invalid-feedback">Role is required</div>
-          )} 
+          <label>Role</label>
+          <Dropdown
+            className={submitted && !user.userRole ? ' is-invalid' : ''}
+            options={options}
+            onChange={handleRoleChange}
+            value={user.userRole}
+            placeholder="Role"
+          />
+          {submitted && !user.userRole && <div className="invalid-feedback">Role is required</div>}
         </div>
-      
+
         <div className="form-group">
           <label>Password</label>
           <input
@@ -125,10 +113,7 @@ function UserPage(propps) {
             name="password"
             value={user.password}
             onChange={handleChange}
-            className={
-              "form-control" +
-              (submitted && !user.password ? " is-invalid" : "")
-            }
+            className={'form-control' + (submitted && !user.password ? ' is-invalid' : '')}
           />
           {submitted && !user.password && (
             <div className="invalid-feedback">Password is required</div>
@@ -136,9 +121,7 @@ function UserPage(propps) {
         </div>
         <div className="form-group">
           <button className="btn btn-primary">
-            {updating && (
-              <span className="spinner-border spinner-border-sm mr-1"></span>
-            )}
+            {updating && <span className="spinner-border spinner-border-sm mr-1"></span>}
             Edit
           </button>
           <Link to="/home" className="btn btn-link">
