@@ -1,1 +1,1 @@
-// export * from './ViewPage';
+export * from './ViewPage';

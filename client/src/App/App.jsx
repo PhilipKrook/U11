@@ -33,6 +33,7 @@ function App() {
             <Router history={history}>
               <Switch>
                 <PrivateRoute exact path="/" component={HomePage} />
+                <PrivateRoute exact path="/view" component={ViewPage} />
                 <Route path="/login" component={LoginPage} />
                 <Route path="/register" component={RegisterPage} />
                 <Route path="/user/:testvalue" component={UserPage} />

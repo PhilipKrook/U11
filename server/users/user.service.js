@@ -14,7 +14,6 @@ module.exports = {
   delete: _delete,
 };
 
-// old
 async function authenticate({ username, password }) {
   const user = await User.findOne({ username });
   if (user && bcrypt.compareSync(password, user.hash)) {
@@ -29,33 +28,10 @@ async function authenticate({ username, password }) {
   }
 }
 
-// new
-/* 
-async function getAll() {
-  const users = await User.find();
-  return users.map((u) => {
-    const { password, ...userWithoutPassword } = u;
-    return userWithoutPassword;
-  });
-}
-*/
-
-// old
 async function getAll() {
   return await User.find();
 }
 
-// new
-/* 
-async function getById(id) {
-  const user = await User.findById(id);
-  if (!user) return;
-  const { password, ...userWithoutPassword } = user;
-  return userWithoutPassword;
-}
-*/
-
-// old
 async function getById(id) {
   return await User.findById(id);
 }
@@ -65,14 +41,12 @@ async function create(userParam) {
   if (await User.findOne({ username: userParam.username })) {
     throw 'Username "' + userParam.username + '" is already taken';
   }
-
   const user = new User(userParam);
 
   // hash password
   if (userParam.password) {
     user.hash = bcrypt.hashSync(userParam.password, 10);
   }
-
   // save user
   await user.save();
 }
