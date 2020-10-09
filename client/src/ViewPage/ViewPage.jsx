@@ -5,6 +5,9 @@ import { useDispatch, useSelector } from 'react-redux';
 import { userActions } from '../_actions';
 
 function ViewPage() {
+  const users = useSelector((state) => state.users);
+  const user = useSelector((state) => state.authentication.user);
+
   return (
     <div className="col-lg-8 offset-lg-2">
       <h1>Hi {user.firstName}!</h1>
