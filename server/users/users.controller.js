@@ -5,10 +5,9 @@ const userService = require('./user.service');
 const authorize = require('_helpers/authorize');
 const Role = require('_helpers/role');
 
-// routes
-router.post('/authenticate', authenticate); // public route
-router.get('/', authorize(Role.Admin), getAll); // admin only
-router.get('/:id', authorize(), getById); // all authenticated users
+router.post('/authenticate', authenticate);
+router.get('/', authorize(Role.Admin), getAll);
+router.get('/:id', authorize(), getById);
 router.post('/register', register);
 router.get('/', getAll);
 router.get('/current', getCurrent);

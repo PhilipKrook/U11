@@ -1,11 +1,11 @@
 {
-    "name": "react-hooks-redux-registration-login-example",
-    "version": "1.0.0",
+    "name": "user-manager",
+    "version": "",
     "repository": {
-        "type": "git",
-        "url": "https://github.com/cornflourblue/react-hooks-redux-registration-login-example.git"
+        "type": "",
+        "url": ""
     },
-    "license": "MIT",
+    "license": "",
     "scripts": {
         "build": "webpack --mode production",
         "start": "webpack-dev-server --open"

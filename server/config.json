@@ -1,4 +1,4 @@
 ﻿{
-  "connectionString": "mongodb://localhost/node-mongo-registration-login-api",
+  "connectionString": "mongodb://localhost/user-manager",
   "secret": "SUPER SECRET SECRET IS SECRET"
 }
